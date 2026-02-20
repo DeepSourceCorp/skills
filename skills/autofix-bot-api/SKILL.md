@@ -23,7 +23,7 @@ curl https://api.autofix.bot/workspace \
   -H "Authorization: Bearer $AUTOFIX_BOT_API_KEY"
 ```
 
-If the key is not set, ask the user to provide it. Never hardcode API keys.
+If the key is not set, ask the user to provide it. Never hardcode API keys or pass them as command-line arguments. All bundled scripts read from this environment variable automatically.
 
 ## Workflow
 
@@ -49,10 +49,10 @@ Use the bundled `scripts/sync_repo.sh` script:
 
 ```bash
 # Full sync (first time)
-./scripts/sync_repo.sh /path/to/repo <repo_id> "$AUTOFIX_BOT_API_KEY"
+./scripts/sync_repo.sh /path/to/repo <repo_id>
 
 # Incremental sync (subsequent updates)
-./scripts/sync_repo.sh /path/to/repo <repo_id> "$AUTOFIX_BOT_API_KEY" <base_ref>
+./scripts/sync_repo.sh /path/to/repo <repo_id> <base_ref>
 ```
 
 The script creates a git bundle, obtains a signed upload URL, uploads the bundle, and polls until sync completes. It outputs the sync ID on success.
@@ -98,7 +98,7 @@ curl -X POST https://api.autofix.bot/analysis \
 Use the bundled `scripts/poll_analysis.sh` script:
 
 ```bash
-RESULT=$(./scripts/poll_analysis.sh <analysis_id> "$AUTOFIX_BOT_API_KEY")
+RESULT=$(./scripts/poll_analysis.sh <analysis_id>)
 ```
 
 Or poll manually: `GET /analysis/{id}` until `status` is `completed`.

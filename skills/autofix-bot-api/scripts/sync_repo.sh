@@ -3,18 +3,21 @@
 # sync_repo.sh - Create a git bundle and sync it to Autofix Bot
 #
 # Usage:
-#   Full sync:        ./sync_repo.sh <repo_path> <api_repo_id> <api_key>
-#   Incremental sync: ./sync_repo.sh <repo_path> <api_repo_id> <api_key> <base_ref>
+#   Full sync:        ./sync_repo.sh <repo_path> <api_repo_id> [base_ref]
+#   Incremental sync: ./sync_repo.sh <repo_path> <api_repo_id> <base_ref>
+#
+# Requires AUTOFIX_BOT_API_KEY environment variable.
 #
 # Creates a git bundle from a local repository and uploads it to Autofix Bot
 # via a signed URL. Returns the sync ID on success.
 
 set -euo pipefail
 
-REPO_PATH="${1:?Usage: sync_repo.sh <repo_path> <api_repo_id> <api_key> [base_ref]}"
+REPO_PATH="${1:?Usage: sync_repo.sh <repo_path> <api_repo_id> [base_ref]}"
 API_REPO_ID="${2:?Missing api_repo_id}"
-API_KEY="${3:?Missing api_key}"
-BASE_REF="${4:-}"
+BASE_REF="${3:-}"
+
+: "${AUTOFIX_BOT_API_KEY:?Set the AUTOFIX_BOT_API_KEY environment variable}"
 
 API_BASE="https://api.autofix.bot"
 BUNDLE_FILE=$(mktemp /tmp/autofix-bundle-XXXXXX.bundle)
@@ -46,7 +49,7 @@ fi
 
 SYNC_RESPONSE=$(curl -s -w "\n%{http_code}" \
     -X POST "$API_BASE/repositories/$API_REPO_ID/syncs" \
-    -H "Authorization: Bearer $API_KEY" \
+    -H "Authorization: Bearer $AUTOFIX_BOT_API_KEY" \
     -H "Content-Type: application/json" \
     -d "$SYNC_BODY")
 
@@ -83,7 +86,7 @@ echo "Waiting for sync to complete..."
 while true; do
     POLL_RESPONSE=$(curl -s \
         "$API_BASE/repositories/$API_REPO_ID/syncs/$SYNC_ID" \
-        -H "Authorization: Bearer $API_KEY")
+        -H "Authorization: Bearer $AUTOFIX_BOT_API_KEY")
 
     STATUS=$(echo "$POLL_RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin)['status'])")
 
