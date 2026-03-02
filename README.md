@@ -15,11 +15,11 @@ Scan repositories for security vulnerabilities, leaked secrets, and dependency i
 
 ### [deepsource](skills/deepsource)
 
-Retrieve code health data from DeepSource using the [DeepSource CLI](https://deepsource.com/cli) — issues, vulnerabilities, report cards, and analysis runs.
+Retrieve code review results from DeepSource using the [DeepSource CLI](https://deepsource.com/cli) — issues, vulnerabilities, report cards, and analysis runs.
 
-- **Use when:** you want to list code health issues, bugs, or security findings for a repository
+- **Use when:** you want to list code review issues, bugs, or security findings for a repository
 - **Use when:** you want to check dependency vulnerabilities or CVE status
-- **Use when:** you want to get code health grades, coverage metrics, or report cards
+- **Use when:** you want to get code review grades, coverage metrics, or report cards
 - **Use when:** you want to view analysis run history
 
 ## Installation

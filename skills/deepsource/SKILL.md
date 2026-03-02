@@ -1,8 +1,8 @@
 ---
 name: deepsource
 description: >
-  Retrieve code health data from DeepSource — issues, vulnerabilities, report cards,
-  and analysis runs. Use when asked about code health, security findings, dependency
+  Retrieve code review results from DeepSource — issues, vulnerabilities, report cards,
+  and analysis runs. Use when asked about code quality, security findings, dependency
   CVEs, coverage metrics, or analysis status.
 ---
 
@@ -22,7 +22,7 @@ deepsource auth login
 
 ## Goals
 
-### Get code health issues
+### Get code review issues
 
 ```bash
 deepsource issues --output json
