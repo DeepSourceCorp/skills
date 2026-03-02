@@ -13,6 +13,15 @@ Scan repositories for security vulnerabilities, leaked secrets, and dependency i
 - **Use when:** you want to auto-fix security issues detected by Autofix Bot
 - **Includes:** sync and polling scripts for automated workflows, full API reference
 
+### [deepsource](skills/deepsource)
+
+Retrieve code review results from DeepSource using the [DeepSource CLI](https://deepsource.com/cli) — issues, vulnerabilities, report cards, and analysis runs.
+
+- **Use when:** you want to list code review issues, bugs, or security findings for a repository
+- **Use when:** you want to check dependency vulnerabilities or CVE status
+- **Use when:** you want to get code review grades, coverage metrics, or report cards
+- **Use when:** you want to view analysis run history
+
 ## Installation
 
 Install all skills:
@@ -25,6 +34,7 @@ Install a specific skill:
 
 ```
 npx skills add deepsource/skills -s autofix-bot-api
+npx skills add deepsource/skills -s deepsource
 ```
 
 Skills work with [18+ AI agents](https://skills.sh) including Claude Code, GitHub Copilot, Cursor, Cline, Codex, and more.
@@ -36,6 +46,9 @@ Once installed, skills are automatically available to your AI agent. Just ask na
 - "Scan this repo for security vulnerabilities using Autofix Bot"
 - "Run Autofix Bot on my latest changes and fix any issues"
 - "Upload this repository to Autofix Bot and analyze it"
+- "Show me the critical code issues in this repo"
+- "Check for dependency vulnerabilities"
+- "What's the report card for this repository?"
 
 ## Skill Structure
 
