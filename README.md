@@ -46,9 +46,9 @@ Once installed, skills are automatically available to your AI agent. Just ask na
 - "Scan this repo for security vulnerabilities using Autofix Bot"
 - "Run Autofix Bot on my latest changes and fix any issues"
 - "Upload this repository to Autofix Bot and analyze it"
-- "Show me the critical code issues in this repo"
-- "Check for dependency vulnerabilities"
-- "What's the report card for this repository?"
+- "Show me the critical code issues on DeepSource"
+- "Check for dependency vulnerabilities on DeepSource"
+- "What's the DeepSource report card for this pull request?"
 
 ## Skill Structure
 
