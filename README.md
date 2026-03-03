@@ -27,14 +27,14 @@ Retrieve code review results from DeepSource using the [DeepSource CLI](https://
 Install all skills:
 
 ```
-npx skills add deepsource/skills
+npx skills add DeepSourceCorp/skills
 ```
 
 Install a specific skill:
 
 ```
-npx skills add deepsource/skills -s autofix-bot-api
-npx skills add deepsource/skills -s deepsource
+npx skills add DeepSourceCorp/skills -s autofix-bot-api
+npx skills add DeepSourceCorp/skills -s deepsource
 ```
 
 Skills work with [18+ AI agents](https://skills.sh) including Claude Code, GitHub Copilot, Cursor, Cline, Codex, and more.
