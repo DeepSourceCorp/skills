@@ -11,12 +11,6 @@ description: >
 ## Authentication
 
 ```bash
-./scripts/check_auth.sh
-```
-
-If not authenticated:
-
-```bash
 deepsource auth login
 ```
 
@@ -28,7 +22,7 @@ deepsource auth login
 deepsource issues --output json
 ```
 
-Filter examples:
+Narrow by severity, category, or path:
 ```bash
 deepsource issues --severity critical,major --output json
 deepsource issues --category security,bug-risk --output json
